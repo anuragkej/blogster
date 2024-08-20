@@ -1,0 +1,70 @@
+{
+    "sourceFile": "src/App.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 13,
+            "patches": [
+                {
+                    "date": 1724129241870,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1724129306848,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,9 @@\n           href=\"https://reactjs.org\"\n           target=\"_blank\"\n           rel=\"noopener noreferrer\"\n         >\n-          Learn React\n+          Poop\n         </a>\n       </header>\n     </div>\n   );\n"
+                },
+                {
+                    "date": 1724129363204,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,9 @@\n           href=\"https://reactjs.org\"\n           target=\"_blank\"\n           rel=\"noopener noreferrer\"\n         >\n-          Poop\n+          Learn React\n         </a>\n       </header>\n     </div>\n   );\n"
+                },
+                {
+                    "date": 1724129855614,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,22 +3,11 @@\n \n function App() {\n   return (\n     <div className=\"App\">\n-      <header className=\"App-header\">\n-        <img src={logo} className=\"App-logo\" alt=\"logo\" />\n-        <p>\n-          Edit <code>src/App.js</code> and save to reload.\n-        </p>\n-        <a\n-          className=\"App-link\"\n-          href=\"https://reactjs.org\"\n-          target=\"_blank\"\n-          rel=\"noopener noreferrer\"\n-        >\n-          Learn React\n-        </a>\n-      </header>\n+      <div className=\"content\">\n+        <h1>App Component</h1>\n+      </div>\n     </div>\n   );\n }\n \n"
+                },
+                {
+                    "date": 1724129872283,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,4 @@\n-import logo from \"./logo.svg\";\n import \"./App.css\";\n \n function App() {\n   return (\n"
+                },
+                {
+                    "date": 1724129960952,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,11 +1,12 @@\n import \"./App.css\";\n \n function App() {\n+  const title = \"Welcome to Blogster\";\n   return (\n     <div className=\"App\">\n       <div className=\"content\">\n-        <h1>App Component</h1>\n+        <h1>{title}</h1>\n       </div>\n     </div>\n   );\n }\n"
+                },
+                {
+                    "date": 1724129994238,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,17 @@\n+import \"./App.css\";\n+\n+function App() {\n+  const title = \"Welcome to Blogster\";\n+  const likes = 50;\n+\n+  return (\n+    <div className=\"App\">\n+      <div className=\"content\">\n+        <h1>{title}</h1>\n+        <p>Liked {likes} times</p>\n+      </div>\n+    </div>\n+  );\n+}\n+\n+export default App;\n"
+                },
+                {
+                    "date": 1724130030456,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,8 +3,10 @@\n function App() {\n   const title = \"Welcome to Blogster\";\n   const likes = 50;\n \n+  // react converts everything to string before outputting to browser, so don't need to worry about typecasting\n+\n   return (\n     <div className=\"App\">\n       <div className=\"content\">\n         <h1>{title}</h1>\n@@ -14,18 +16,4 @@\n   );\n }\n \n export default App;\n-import \"./App.css\";\n-\n-function App() {\n-  const title = \"Welcome to Blogster\";\n-  return (\n-    <div className=\"App\">\n-      <div className=\"content\">\n-        <h1>{title}</h1>\n-      </div>\n-    </div>\n-  );\n-}\n-\n-export default App;\n"
+                },
+                {
+                    "date": 1724130088743,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,8 +10,9 @@\n     <div className=\"App\">\n       <div className=\"content\">\n         <h1>{title}</h1>\n         <p>Liked {likes} times</p>\n+        <p>{10}</p>\n       </div>\n     </div>\n   );\n }\n"
+                },
+                {
+                    "date": 1724130109201,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,8 +11,9 @@\n       <div className=\"content\">\n         <h1>{title}</h1>\n         <p>Liked {likes} times</p>\n         <p>{10}</p>\n+        <p>{\"hello everyone!\"}</p>\n       </div>\n     </div>\n   );\n }\n"
+                },
+                {
+                    "date": 1724130142360,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,8 +12,9 @@\n         <h1>{title}</h1>\n         <p>Liked {likes} times</p>\n         <p>{10}</p>\n         <p>{\"hello everyone!\"}</p>\n+        <p>{Math.random() * 100}</p>\n       </div>\n     </div>\n   );\n }\n"
+                },
+                {
+                    "date": 1724130176733,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,8 +13,10 @@\n         <p>Liked {likes} times</p>\n         <p>{10}</p>\n         <p>{\"hello everyone!\"}</p>\n         <p>{Math.random() * 100}</p>\n+\n+        <a href=\"http://www.google.com\"></a>\n       </div>\n     </div>\n   );\n }\n"
+                },
+                {
+                    "date": 1724130206866,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,8 +2,9 @@\n \n function App() {\n   const title = \"Welcome to Blogster\";\n   const likes = 50;\n+  const link = \"http://www.google.com\";\n \n   // react converts everything to string before outputting to browser, so don't need to worry about typecasting\n \n   return (\n@@ -14,9 +15,9 @@\n         <p>{10}</p>\n         <p>{\"hello everyone!\"}</p>\n         <p>{Math.random() * 100}</p>\n \n-        <a href=\"http://www.google.com\"></a>\n+        <a href={link}></a>\n       </div>\n     </div>\n   );\n }\n"
+                },
+                {
+                    "date": 1724130217128,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n         <p>{10}</p>\n         <p>{\"hello everyone!\"}</p>\n         <p>{Math.random() * 100}</p>\n \n-        <a href={link}></a>\n+        <a href={link}>Open Google Site</a>\n       </div>\n     </div>\n   );\n }\n"
+                }
+            ],
+            "date": 1724129241870,
+            "name": "Commit-0",
+            "content": "import logo from \"./logo.svg\";\nimport \"./App.css\";\n\nfunction App() {\n  return (\n    <div className=\"App\">\n      <header className=\"App-header\">\n        <img src={logo} className=\"App-logo\" alt=\"logo\" />\n        <p>\n          Edit <code>src/App.js</code> and save to reload.\n        </p>\n        <a\n          className=\"App-link\"\n          href=\"https://reactjs.org\"\n          target=\"_blank\"\n          rel=\"noopener noreferrer\"\n        >\n          Learn React\n        </a>\n      </header>\n    </div>\n  );\n}\n\nexport default App;\n"
+        }
+    ]
+}

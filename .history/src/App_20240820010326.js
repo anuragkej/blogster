@@ -16,7 +16,7 @@ function App() {
         <p>{"hello everyone!"}</p>
         <p>{Math.random() * 100}</p>
 
-        <a href={link}>Open Google Site</a>
+        <a href={link}></a>
       </div>
     </div>
   );
