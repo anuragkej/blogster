@@ -1,0 +1,46 @@
+{
+    "sourceFile": "src/navbar.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 7,
+            "patches": [
+                {
+                    "date": 1724220357317,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1724220368952,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,8 +3,9 @@\n     <nav className=\"navbar\">\n       <h1>The Car Blog</h1>\n       <div className=\"links\">\n         <a href=\"/\">Home</a>\n+        <a href=\"/create\">New Blog</a>\n       </div>\n     </nav>\n   );\n };\n"
+                },
+                {
+                    "date": 1724220956237,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,18 @@\n     <nav className=\"navbar\">\n       <h1>The Car Blog</h1>\n       <div className=\"links\">\n         <a href=\"/\">Home</a>\n-        <a href=\"/create\">New Blog</a>\n+        <a\n+          href=\"/create\"\n+          style={{\n+            color: \"white\",\n+            backgroundColor: \"f#1356d\",\n+            borderRadius: \"8px\",\n+          }}\n+        >\n+          New Blog\n+        </a>\n       </div>\n     </nav>\n   );\n };\n"
+                },
+                {
+                    "date": 1724221032862,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,22 @@\n+const Navbar = () => {\n+  return (\n+    <nav className=\"navbar\">\n+      <h1>The Car Blog</h1>\n+      <div className=\"links\">\n+        <a href=\"/\">Home</a>\n+        <a\n+          href=\"/create\"\n+          style={{\n+            color: \"white\",\n+            backgroundColor: \"f#1356d\",\n+            borderRadius: \"8px\",\n+          }}\n+        >\n+          New Blog\n+        </a>\n+      </div>\n+    </nav>\n+  );\n+};\n+\n+export default Navbar;\n"
+                },
+                {
+                    "date": 1724221057498,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,15 +1,15 @@\n const Navbar = () => {\n   return (\n     <nav className=\"navbar\">\n-      <h1>The Car Blog</h1>\n+      <h1>The Dojo Blog</h1>\n       <div className=\"links\">\n         <a href=\"/\">Home</a>\n         <a\n           href=\"/create\"\n           style={{\n             color: \"white\",\n-            backgroundColor: \"f#1356d\",\n+            backgroundColor: \"#f1356d\",\n             borderRadius: \"8px\",\n           }}\n         >\n           New Blog\n@@ -19,26 +19,4 @@\n   );\n };\n \n export default Navbar;\n-const Navbar = () => {\n-  return (\n-    <nav className=\"navbar\">\n-      <h1>The Car Blog</h1>\n-      <div className=\"links\">\n-        <a href=\"/\">Home</a>\n-        <a\n-          href=\"/create\"\n-          style={{\n-            color: \"white\",\n-            backgroundColor: \"f#1356d\",\n-            borderRadius: \"8px\",\n-          }}\n-        >\n-          New Blog\n-        </a>\n-      </div>\n-    </nav>\n-  );\n-};\n-\n-export default Navbar;\n"
+                },
+                {
+                    "date": 1724221062609,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n const Navbar = () => {\n   return (\n     <nav className=\"navbar\">\n-      <h1>The Dojo Blog</h1>\n+      <h1>The Car Blog</h1>\n       <div className=\"links\">\n         <a href=\"/\">Home</a>\n         <a\n           href=\"/create\"\n"
+                },
+                {
+                    "date": 1724221086425,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n         <a href=\"/\">Home</a>\n         <a\n           href=\"/create\"\n           style={{\n-            color: \"white\",\n+            color: \"red\",\n             backgroundColor: \"#f1356d\",\n             borderRadius: \"8px\",\n           }}\n         >\n"
+                },
+                {
+                    "date": 1724221093559,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n         <a href=\"/\">Home</a>\n         <a\n           href=\"/create\"\n           style={{\n-            color: \"red\",\n+            color: \"black\",\n             backgroundColor: \"#f1356d\",\n             borderRadius: \"8px\",\n           }}\n         >\n"
+                }
+            ],
+            "date": 1724220357317,
+            "name": "Commit-0",
+            "content": "const Navbar = () => {\n  return (\n    <nav className=\"navbar\">\n      <h1>The Car Blog</h1>\n      <div className=\"links\">\n        <a href=\"/\">Home</a>\n      </div>\n    </nav>\n  );\n};\n\nexport default Navbar;\n"
+        }
+    ]
+}

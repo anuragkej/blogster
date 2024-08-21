@@ -1,0 +1,58 @@
+{
+    "sourceFile": "src/Home.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 10,
+            "patches": [
+                {
+                    "date": 1724220498243,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1724221117001,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,9 @@\n const Home = () => {\n   return (\n     <div className=\"home\">\n       <h2>Homepage</h2>\n+      <button>Click Me</button>\n     </div>\n   );\n };\n \n"
+                },
+                {
+                    "date": 1724221185633,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,10 @@\n const Home = () => {\n+    \n+  const handleClick = () => {\n+    console.log('hello, ninjas')\n+  }\n+  }\n   return (\n     <div className=\"home\">\n       <h2>Homepage</h2>\n       <button>Click Me</button>\n"
+                },
+                {
+                    "date": 1724221199575,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,10 +1,9 @@\n const Home = () => {\n-    \n   const handleClick = () => {\n-    console.log('hello, ninjas')\n-  }\n-  }\n+    console.log(\"hello, ninjas\");\n+  };\n+\n   return (\n     <div className=\"home\">\n       <h2>Homepage</h2>\n       <button>Click Me</button>\n"
+                },
+                {
+                    "date": 1724221233753,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n \n   return (\n     <div className=\"home\">\n       <h2>Homepage</h2>\n-      <button>Click Me</button>\n+      <button onClick={handleClick}>Click Me</button>\n     </div>\n   );\n };\n \n"
+                },
+                {
+                    "date": 1724221307551,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,8 +6,9 @@\n   return (\n     <div className=\"home\">\n       <h2>Homepage</h2>\n       <button onClick={handleClick}>Click Me</button>\n+      <button>Click me Again</button>\n     </div>\n   );\n };\n \n"
+                },
+                {
+                    "date": 1724221338716,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,11 @@\n const Home = () => {\n   const handleClick = () => {\n     console.log(\"hello, ninjas\");\n   };\n+  const handleClickAgain = (name) => {\n+    console.log(\"hello\" + name);\n+  };\n \n   return (\n     <div className=\"home\">\n       <h2>Homepage</h2>\n"
+                },
+                {
+                    "date": 1724221428142,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n   return (\n     <div className=\"home\">\n       <h2>Homepage</h2>\n       <button onClick={handleClick}>Click Me</button>\n-      <button>Click me Again</button>\n+      <button onClick={() => handleClickAgain(\"Anurag\")}>Click me Again</button>\n     </div>\n   );\n };\n \n"
+                },
+                {
+                    "date": 1724221444927,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n   const handleClick = () => {\n     console.log(\"hello, ninjas\");\n   };\n   const handleClickAgain = (name) => {\n-    console.log(\"hello\" + name);\n+    console.log(\"Hello, \" + name);\n   };\n \n   return (\n     <div className=\"home\">\n"
+                },
+                {
+                    "date": 1724221519866,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n-const Home = () => {\n+const Home = (e) => {\n   const handleClick = () => {\n-    console.log(\"hello, ninjas\");\n+    console.log(\"hello, ninjas\", e);\n   };\n   const handleClickAgain = (name) => {\n     console.log(\"Hello, \" + name);\n   };\n"
+                },
+                {
+                    "date": 1724221588343,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,17 +1,19 @@\n const Home = (e) => {\n   const handleClick = () => {\n     console.log(\"hello, ninjas\", e);\n   };\n-  const handleClickAgain = (name) => {\n-    console.log(\"Hello, \" + name);\n+  const handleClickAgain = (name, e) => {\n+    console.log(\"Hello, \" + name, e.target);\n   };\n \n   return (\n     <div className=\"home\">\n       <h2>Homepage</h2>\n       <button onClick={handleClick}>Click Me</button>\n-      <button onClick={() => handleClickAgain(\"Anurag\")}>Click me Again</button>\n+      <button onClick={(e) => handleClickAgain(\"Anurag\", e)}>\n+        Click me Again\n+      </button>\n     </div>\n   );\n };\n \n"
+                }
+            ],
+            "date": 1724220498243,
+            "name": "Commit-0",
+            "content": "const Home = () => {\n  return (\n    <div className=\"home\">\n      <h2>Homepage</h2>\n    </div>\n  );\n};\n\nexport default Home;\n"
+        }
+    ]
+}

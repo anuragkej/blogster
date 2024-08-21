@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 13,
+            "activePatchIndex": 20,
             "patches": [
                 {
                     "date": 1724129241870,
@@ -60,6 +60,34 @@
                 {
                     "date": 1724130217128,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n         <p>{10}</p>\n         <p>{\"hello everyone!\"}</p>\n         <p>{Math.random() * 100}</p>\n \n-        <a href={link}></a>\n+        <a href={link}>Open Google Site</a>\n       </div>\n     </div>\n   );\n }\n"
+                },
+                {
+                    "date": 1724220395748,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,6 @@\n import \"./App.css\";\n+import Navbar from \"./Navbar\";\n \n function App() {\n   const title = \"Welcome to Blogster\";\n   const likes = 50;\n"
+                },
+                {
+                    "date": 1724220419732,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,8 +9,9 @@\n   // react converts everything to string before outputting to browser, so don't need to worry about typecasting\n \n   return (\n     <div className=\"App\">\n+      <Navbar></Navbar>\n       <div className=\"content\">\n         <h1>{title}</h1>\n         <p>Liked {likes} times</p>\n         <p>{10}</p>\n"
+                },
+                {
+                    "date": 1724220518229,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n import \"./App.css\";\n-import Navbar from \"./Navbar\";\n+import Navbar from \"./navbar\";\n \n function App() {\n   const title = \"Welcome to Blogster\";\n   const likes = 50;\n"
+                },
+                {
+                    "date": 1724220547074,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n import \"./App.css\";\n-import Navbar from \"./navbar\";\n+import Navbar from \"./Navbar\";\n \n function App() {\n   const title = \"Welcome to Blogster\";\n   const likes = 50;\n"
+                },
+                {
+                    "date": 1724220569875,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,7 @@\n import \"./App.css\";\n import Navbar from \"./Navbar\";\n+import Home from \"./Home\";\n \n function App() {\n   const title = \"Welcome to Blogster\";\n   const likes = 50;\n"
+                },
+                {
+                    "date": 1724220603720,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,24 @@\n+import \"./App.css\";\n+import Navbar from \"./Navbar\";\n+import Home from \"./Home\";\n+\n+function App() {\n+  const title = \"Welcome to Blogster\";\n+  const likes = 50;\n+  const link = \"http://www.google.com\";\n+\n+  // react converts everything to string before outputting to browser, so don't need to worry about typecasting\n+\n+  return (\n+    <div className=\"App\">\n+      <Navbar></Navbar>\n+      <div className=\"content\">\n+        <Home />\n+\n+        <a href={link}>Open Google Site</a>\n+      </div>\n+    </div>\n+  );\n+}\n+\n+export default App;\n"
+                },
+                {
+                    "date": 1724220737863,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,4 @@\n-import \"./App.css\";\n import Navbar from \"./Navbar\";\n import Home from \"./Home\";\n \n function App() {\n@@ -21,32 +20,4 @@\n   );\n }\n \n export default App;\n-import \"./App.css\";\n-import Navbar from \"./Navbar\";\n-import Home from \"./Home\";\n-\n-function App() {\n-  const title = \"Welcome to Blogster\";\n-  const likes = 50;\n-  const link = \"http://www.google.com\";\n-\n-  // react converts everything to string before outputting to browser, so don't need to worry about typecasting\n-\n-  return (\n-    <div className=\"App\">\n-      <Navbar></Navbar>\n-      <div className=\"content\">\n-        <h1>{title}</h1>\n-        <p>Liked {likes} times</p>\n-        <p>{10}</p>\n-        <p>{\"hello everyone!\"}</p>\n-        <p>{Math.random() * 100}</p>\n-\n-        <a href={link}>Open Google Site</a>\n-      </div>\n-    </div>\n-  );\n-}\n-\n-export default App;\n"
                 }
             ],
             "date": 1724129241870,

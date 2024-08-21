@@ -1,0 +1,22 @@
+{
+    "sourceFile": "src/index.css",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1724220792444,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1724220832141,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,1 +1,34 @@\n @import url(\"https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap\");\n+\n+* {\n+  margin: 0;\n+  font-family: \"Quicksand\";\n+  color: #333;\n+}\n+.navbar {\n+  padding: 20px;\n+  display: flex;\n+  align-items: center;\n+  max-width: 600px;\n+  margin: 0 auto;\n+  border-bottom: 1px solid #f2f2f2;\n+}\n+.navbar h1 {\n+  color: #f1356d;\n+}\n+.navbar .links {\n+  margin-left: auto;\n+}\n+.navbar a {\n+  margin-left: 16px;\n+  text-decoration: none;\n+  padding: 6px;\n+}\n+.navbar a:hover {\n+  color: #f1356d;\n+}\n+.content {\n+  max-width: 600px;\n+  margin: 40px auto;\n+  padding: 20px;\n+}\n"
+                }
+            ],
+            "date": 1724220792444,
+            "name": "Commit-0",
+            "content": "@import url(\"https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap\");\n"
+        }
+    ]
+}

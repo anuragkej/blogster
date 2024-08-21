@@ -1,5 +1,5 @@
-import Navbar from "./Navbar";
-import Home from "./Home";
+import "./App.css";
+import Navbar from "./navbar";
 
 function App() {
   const title = "Welcome to Blogster";
@@ -12,7 +12,11 @@ function App() {
     <div className="App">
       <Navbar></Navbar>
       <div className="content">
-        <Home />
+        <h1>{title}</h1>
+        <p>Liked {likes} times</p>
+        <p>{10}</p>
+        <p>{"hello everyone!"}</p>
+        <p>{Math.random() * 100}</p>
 
         <a href={link}>Open Google Site</a>
       </div>
