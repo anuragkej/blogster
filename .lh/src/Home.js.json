@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 10,
+            "activePatchIndex": 18,
             "patches": [
                 {
                     "date": 1724220498243,
@@ -48,6 +48,38 @@
                 {
                     "date": 1724221588343,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,17 +1,19 @@\n const Home = (e) => {\n   const handleClick = () => {\n     console.log(\"hello, ninjas\", e);\n   };\n-  const handleClickAgain = (name) => {\n-    console.log(\"Hello, \" + name);\n+  const handleClickAgain = (name, e) => {\n+    console.log(\"Hello, \" + name, e.target);\n   };\n \n   return (\n     <div className=\"home\">\n       <h2>Homepage</h2>\n       <button onClick={handleClick}>Click Me</button>\n-      <button onClick={() => handleClickAgain(\"Anurag\")}>Click me Again</button>\n+      <button onClick={(e) => handleClickAgain(\"Anurag\", e)}>\n+        Click me Again\n+      </button>\n     </div>\n   );\n };\n \n"
+                },
+                {
+                    "date": 1724349884727,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n   const handleClick = () => {\n     console.log(\"hello, ninjas\", e);\n   };\n   const handleClickAgain = (name, e) => {\n-    console.log(\"Hello, \" + name, e.target);\n+    console.log(\"Hello, \" + name, e.target.name);\n   };\n \n   return (\n     <div className=\"home\">\n"
+                },
+                {
+                    "date": 1724349898565,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n   const handleClick = () => {\n     console.log(\"hello, ninjas\", e);\n   };\n   const handleClickAgain = (name, e) => {\n-    console.log(\"Hello, \" + name, e.target.name);\n+    console.log(\"Hello, \" + name, e.targetname);\n   };\n \n   return (\n     <div className=\"home\">\n"
+                },
+                {
+                    "date": 1724349907051,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n   const handleClick = () => {\n     console.log(\"hello, ninjas\", e);\n   };\n   const handleClickAgain = (name, e) => {\n-    console.log(\"Hello, \" + name, e.targetname);\n+    console.log(\"Hello, \" + name, e.target);\n   };\n \n   return (\n     <div className=\"home\">\n"
+                },
+                {
+                    "date": 1724349914581,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n   const handleClick = () => {\n     console.log(\"hello, ninjas\", e);\n   };\n   const handleClickAgain = (name, e) => {\n-    console.log(\"Hello, \" + name, e.target);\n+    console.log(\"Hello, \" + name, e.target.text);\n   };\n \n   return (\n     <div className=\"home\">\n"
+                },
+                {
+                    "date": 1724349920025,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n   const handleClick = () => {\n     console.log(\"hello, ninjas\", e);\n   };\n   const handleClickAgain = (name, e) => {\n-    console.log(\"Hello, \" + name, e.target.text);\n+    console.log(\"Hello, \" + name, e.target.title);\n   };\n \n   return (\n     <div className=\"home\">\n"
+                },
+                {
+                    "date": 1724349928225,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n   const handleClick = () => {\n     console.log(\"hello, ninjas\", e);\n   };\n   const handleClickAgain = (name, e) => {\n-    console.log(\"Hello, \" + name, e.target.title);\n+    console.log(\"Hello, \" + name, e.target.tag);\n   };\n \n   return (\n     <div className=\"home\">\n"
+                },
+                {
+                    "date": 1724349936406,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n   const handleClick = () => {\n     console.log(\"hello, ninjas\", e);\n   };\n   const handleClickAgain = (name, e) => {\n-    console.log(\"Hello, \" + name, e.target.tag);\n+    console.log(\"Hello, \" + name, e.target);\n   };\n \n   return (\n     <div className=\"home\">\n"
+                },
+                {
+                    "date": 1724349948903,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n const Home = (e) => {\n   const handleClick = () => {\n-    console.log(\"hello, ninjas\", e);\n+    console.log(\"hello, everyone\", e);\n   };\n   const handleClickAgain = (name, e) => {\n     console.log(\"Hello, \" + name, e.target);\n   };\n"
                 }
             ],
             "date": 1724220498243,

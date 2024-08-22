@@ -1,9 +1,9 @@
 const Home = (e) => {
   const handleClick = () => {
-    console.log("hello, everyone", e);
+    console.log("hello, ninjas", e);
   };
   const handleClickAgain = (name, e) => {
-    console.log("Hello, " + name, e.target);
+    console.log("Hello, " + name, e.targetname);
   };
 
   return (
