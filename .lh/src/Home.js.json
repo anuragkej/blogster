@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 18,
+            "activePatchIndex": 31,
             "patches": [
                 {
                     "date": 1724220498243,
@@ -80,6 +80,58 @@
                 {
                     "date": 1724349948903,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n const Home = (e) => {\n   const handleClick = () => {\n-    console.log(\"hello, ninjas\", e);\n+    console.log(\"hello, everyone\", e);\n   };\n   const handleClickAgain = (name, e) => {\n     console.log(\"Hello, \" + name, e.target);\n   };\n"
+                },
+                {
+                    "date": 1724733458091,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,15 +1,14 @@\n const Home = (e) => {\n+  let name = \"Mario\";\n   const handleClick = () => {\n     console.log(\"hello, everyone\", e);\n   };\n-  const handleClickAgain = (name, e) => {\n-    console.log(\"Hello, \" + name, e.target);\n-  };\n \n   return (\n     <div className=\"home\">\n       <h2>Homepage</h2>\n+      <p>{name}</p>\n       <button onClick={handleClick}>Click Me</button>\n       <button onClick={(e) => handleClickAgain(\"Anurag\", e)}>\n         Click me Again\n       </button>\n"
+                },
+                {
+                    "date": 1724733517121,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,11 +8,8 @@\n     <div className=\"home\">\n       <h2>Homepage</h2>\n       <p>{name}</p>\n       <button onClick={handleClick}>Click Me</button>\n-      <button onClick={(e) => handleClickAgain(\"Anurag\", e)}>\n-        Click me Again\n-      </button>\n     </div>\n   );\n };\n \n"
+                },
+                {
+                    "date": 1724733525967,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n const Home = (e) => {\n-  let name = \"Mario\";\n+  let name = \"Luigi\";\n   const handleClick = () => {\n     console.log(\"hello, everyone\", e);\n   };\n \n"
+                },
+                {
+                    "date": 1724733558159,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n const Home = (e) => {\n   let name = \"Luigi\";\n   const handleClick = () => {\n-    console.log(\"hello, everyone\", e);\n+    name = \"luigi\";\n   };\n \n   return (\n     <div className=\"home\">\n"
+                },
+                {
+                    "date": 1724733566826,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n const Home = (e) => {\n-  let name = \"Luigi\";\n+  let name = \"Mario\";\n   const handleClick = () => {\n     name = \"luigi\";\n   };\n \n"
+                },
+                {
+                    "date": 1724733734483,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,10 @@\n+import { useState } from \"react\";\n+\n const Home = (e) => {\n-  let name = \"Mario\";\n+  const [name, setName] = useState(\"mario\");\n   const handleClick = () => {\n-    name = \"luigi\";\n+    setName(\"luigi\");\n   };\n \n   return (\n     <div className=\"home\">\n"
+                },
+                {
+                    "date": 1724733850252,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,16 +1,19 @@\n import { useState } from \"react\";\n \n const Home = (e) => {\n   const [name, setName] = useState(\"mario\");\n+  const [age, setAge] = useState(25);\n   const handleClick = () => {\n     setName(\"luigi\");\n   };\n \n   return (\n     <div className=\"home\">\n       <h2>Homepage</h2>\n-      <p>{name}</p>\n+      <p>\n+        {name} is {age} years old\n+      </p>\n       <button onClick={handleClick}>Click Me</button>\n     </div>\n   );\n };\n"
+                },
+                {
+                    "date": 1724733861390,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,8 +4,9 @@\n   const [name, setName] = useState(\"mario\");\n   const [age, setAge] = useState(25);\n   const handleClick = () => {\n     setName(\"luigi\");\n+    setAge(30);\n   };\n \n   return (\n     <div className=\"home\">\n"
+                },
+                {
+                    "date": 1724733927249,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,24 @@\n+import { useState } from \"react\";\n+\n+const Home = (e) => {\n+  /*Triggers  Rerendering of state of button so it is reactive.*/\n+  const [name, setName] = useState(\"mario\");\n+  const [age, setAge] = useState(25);\n+\n+  const handleClick = () => {\n+    setName(\"luigi\");\n+    setAge(30);\n+  };\n+\n+  return (\n+    <div className=\"home\">\n+      <h2>Homepage</h2>\n+      <p>\n+        {name} is {age} years old\n+      </p>\n+      <button onClick={handleClick}>Click Me</button>\n+    </div>\n+  );\n+};\n+\n+export default Home;\n"
+                },
+                {
+                    "date": 1724734383808,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,16 +1,36 @@\n import { useState } from \"react\";\n \n-const Home = (e) => {\n+const Home = () => {\n   /*Triggers  Rerendering of state of button so it is reactive.*/\n-  const [name, setName] = useState(\"mario\");\n-  const [age, setAge] = useState(25);\n+  //   const [name, setName] = useState(\"mario\");\n+  //   const [age, setAge] = useState(25);\n \n-  const handleClick = () => {\n-    setName(\"luigi\");\n-    setAge(30);\n-  };\n+  //   const handleClick = () => {\n+  //     setName(\"luigi\");\n+  //     setAge(30);\n+  //   };\n \n+  const [blogs, setBlogs] = useState([\n+    {\n+      title: \"My First Website\",\n+      body: \"I love my website made with React!\",\n+      author: \"Batman\",\n+      id: 1,\n+    },\n+    {\n+      title: \"Web Dev Tips\",\n+      body: \"Different tools to use in Web-App Development\",\n+      author: \"Kangaroo\",\n+      id: 2,\n+    },\n+    {\n+      title: \"Porsche v. Ferrari\",\n+      body: \"Which car has better performance?\",\n+      author: \"Anurag\",\n+      id: 3,\n+    },\n+  ]);\n   return (\n     <div className=\"home\">\n       <h2>Homepage</h2>\n       <p>\n@@ -21,26 +41,4 @@\n   );\n };\n \n export default Home;\n-import { useState } from \"react\";\n-\n-const Home = (e) => {\n-  const [name, setName] = useState(\"mario\");\n-  const [age, setAge] = useState(25);\n-  const handleClick = () => {\n-    setName(\"luigi\");\n-    setAge(30);\n-  };\n-\n-  return (\n-    <div className=\"home\">\n-      <h2>Homepage</h2>\n-      <p>\n-        {name} is {age} years old\n-      </p>\n-      <button onClick={handleClick}>Click Me</button>\n-    </div>\n-  );\n-};\n-\n-export default Home;\n"
+                },
+                {
+                    "date": 1724735969476,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -31,13 +31,14 @@\n     },\n   ]);\n   return (\n     <div className=\"home\">\n-      <h2>Homepage</h2>\n-      <p>\n-        {name} is {age} years old\n-      </p>\n-      <button onClick={handleClick}>Click Me</button>\n+      {blogs.map((blog) => (\n+        <div classname=\"blog-preview\" key={blog.id}>\n+          <h2>{blog.title}</h2>\n+          <p>Written by {blog.author}</p>\n+        </div>\n+      ))}\n     </div>\n   );\n };\n \n"
+                },
+                {
+                    "date": 1724736513294,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,40 +1,22 @@\n import { useState } from \"react\";\n \n const Home = () => {\n-  /*Triggers  Rerendering of state of button so it is reactive.*/\n-  //   const [name, setName] = useState(\"mario\");\n-  //   const [age, setAge] = useState(25);\n-\n-  //   const handleClick = () => {\n-  //     setName(\"luigi\");\n-  //     setAge(30);\n-  //   };\n-\n   const [blogs, setBlogs] = useState([\n+    { title: \"My new website\", body: \"lorem ipsum...\", author: \"mario\", id: 1 },\n+    { title: \"Welcome party!\", body: \"lorem ipsum...\", author: \"yoshi\", id: 2 },\n     {\n-      title: \"My First Website\",\n-      body: \"I love my website made with React!\",\n-      author: \"Batman\",\n-      id: 1,\n-    },\n-    {\n-      title: \"Web Dev Tips\",\n-      body: \"Different tools to use in Web-App Development\",\n-      author: \"Kangaroo\",\n-      id: 2,\n-    },\n-    {\n-      title: \"Porsche v. Ferrari\",\n-      body: \"Which car has better performance?\",\n-      author: \"Anurag\",\n+      title: \"Web dev top tips\",\n+      body: \"lorem ipsum...\",\n+      author: \"mario\",\n       id: 3,\n     },\n   ]);\n+\n   return (\n     <div className=\"home\">\n       {blogs.map((blog) => (\n-        <div classname=\"blog-preview\" key={blog.id}>\n+        <div className=\"blog-preview\" key={blog.id}>\n           <h2>{blog.title}</h2>\n           <p>Written by {blog.author}</p>\n         </div>\n       ))}\n"
+                },
+                {
+                    "date": 1724736657051,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,14 +1,24 @@\n import { useState } from \"react\";\n \n const Home = () => {\n   const [blogs, setBlogs] = useState([\n-    { title: \"My new website\", body: \"lorem ipsum...\", author: \"mario\", id: 1 },\n-    { title: \"Welcome party!\", body: \"lorem ipsum...\", author: \"yoshi\", id: 2 },\n     {\n-      title: \"Web dev top tips\",\n-      body: \"lorem ipsum...\",\n+      title: \"My First Website\",\n+      body: \"Developing website with react.\",\n+      author: \"Darth Vader\",\n+      id: 1,\n+    },\n+    {\n+      title: \"Experimenting with web hooks\",\n+      body: \"sample text\",\n       author: \"mario\",\n+      id: 2,\n+    },\n+    {\n+      title: \"Web development tips\",\n+      body: \"Porsche 911 v. Lamborghini Huracan\",\n+      author: \"Ford\",\n       id: 3,\n     },\n   ]);\n \n"
                 }
             ],
             "date": 1724220498243,

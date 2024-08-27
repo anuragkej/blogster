@@ -2,22 +2,12 @@ import { useState } from "react";
 
 const Home = () => {
   const [blogs, setBlogs] = useState([
+    { title: "My new website", body: "lorem ipsum...", author: "mario", id: 1 },
+    { title: "Welcome party!", body: "lorem ipsum...", author: "yoshi", id: 2 },
     {
-      title: "My First Website",
-      body: "Developing website with react.",
-      author: "Darth Vader",
-      id: 1,
-    },
-    {
-      title: "Experimenting with web hooks",
-      body: "sample text",
+      title: "Web dev top tips",
+      body: "lorem ipsum...",
       author: "mario",
-      id: 2,
-    },
-    {
-      title: "Web development tips",
-      body: "Porsche 911 v. Lamborghini Huracan",
-      author: "Ford",
       id: 3,
     },
   ]);
