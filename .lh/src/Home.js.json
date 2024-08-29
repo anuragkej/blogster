@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 31,
+            "activePatchIndex": 49,
             "patches": [
                 {
                     "date": 1724220498243,
@@ -132,6 +132,78 @@
                 {
                     "date": 1724736657051,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,14 +1,24 @@\n import { useState } from \"react\";\n \n const Home = () => {\n   const [blogs, setBlogs] = useState([\n-    { title: \"My new website\", body: \"lorem ipsum...\", author: \"mario\", id: 1 },\n-    { title: \"Welcome party!\", body: \"lorem ipsum...\", author: \"yoshi\", id: 2 },\n     {\n-      title: \"Web dev top tips\",\n-      body: \"lorem ipsum...\",\n+      title: \"My First Website\",\n+      body: \"Developing website with react.\",\n+      author: \"Darth Vader\",\n+      id: 1,\n+    },\n+    {\n+      title: \"Experimenting with web hooks\",\n+      body: \"sample text\",\n       author: \"mario\",\n+      id: 2,\n+    },\n+    {\n+      title: \"Web development tips\",\n+      body: \"Porsche 911 v. Lamborghini Huracan\",\n+      author: \"Ford\",\n       id: 3,\n     },\n   ]);\n \n"
+                },
+                {
+                    "date": 1724967475913,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,14 +23,9 @@\n   ]);\n \n   return (\n     <div className=\"home\">\n-      {blogs.map((blog) => (\n-        <div className=\"blog-preview\" key={blog.id}>\n-          <h2>{blog.title}</h2>\n-          <p>Written by {blog.author}</p>\n-        </div>\n-      ))}\n+      <BlogList />\n     </div>\n   );\n };\n \n"
+                },
+                {
+                    "date": 1724967488762,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,6 @@\n import { useState } from \"react\";\n+import BlogList from \"./BlogList\";\n \n const Home = () => {\n   const [blogs, setBlogs] = useState([\n     {\n"
+                },
+                {
+                    "date": 1724967590922,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,9 +24,9 @@\n   ]);\n \n   return (\n     <div className=\"home\">\n-      <BlogList />\n+      <BlogList blogs={blogs} />\n     </div>\n   );\n };\n \n"
+                },
+                {
+                    "date": 1724967802560,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,9 +24,10 @@\n   ]);\n \n   return (\n     <div className=\"home\">\n-      <BlogList blogs={blogs} />\n+      {/* blos={blogs} is a prop */}\n+      <BlogList blogs={blogs} title=\"title\" />\n     </div>\n   );\n };\n \n"
+                },
+                {
+                    "date": 1724967807598,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,9 +25,9 @@\n \n   return (\n     <div className=\"home\">\n       {/* blos={blogs} is a prop */}\n-      <BlogList blogs={blogs} title=\"title\" />\n+      <BlogList blogs={blogs} title=\"All Blogs\" />\n     </div>\n   );\n };\n \n"
+                },
+                {
+                    "date": 1724967822343,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,9 +25,9 @@\n \n   return (\n     <div className=\"home\">\n       {/* blos={blogs} is a prop */}\n-      <BlogList blogs={blogs} title=\"All Blogs\" />\n+      <BlogList blogs={blogs} title=\"All Blogs!\" />\n     </div>\n   );\n };\n \n"
+                },
+                {
+                    "date": 1724968174245,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,8 +26,9 @@\n   return (\n     <div className=\"home\">\n       {/* blos={blogs} is a prop */}\n       <BlogList blogs={blogs} title=\"All Blogs!\" />\n+      <BlogList blogs={blogs} title=\"Darth Vader's Blogs\" />\n     </div>\n   );\n };\n \n"
+                },
+                {
+                    "date": 1724968245817,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,9 +26,12 @@\n   return (\n     <div className=\"home\">\n       {/* blos={blogs} is a prop */}\n       <BlogList blogs={blogs} title=\"All Blogs!\" />\n-      <BlogList blogs={blogs} title=\"Darth Vader's Blogs\" />\n+      <BlogList\n+        blogs={blogs.filter((blog) => blog.author === \"Darth Vader\")}\n+        title=\"Darth Vader's Blogs\"\n+      />\n     </div>\n   );\n };\n \n"
+                },
+                {
+                    "date": 1724968426887,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,12 +26,8 @@\n   return (\n     <div className=\"home\">\n       {/* blos={blogs} is a prop */}\n       <BlogList blogs={blogs} title=\"All Blogs!\" />\n-      <BlogList\n-        blogs={blogs.filter((blog) => blog.author === \"Darth Vader\")}\n-        title=\"Darth Vader's Blogs\"\n-      />\n     </div>\n   );\n };\n \n"
+                },
+                {
+                    "date": 1724968514724,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,8 +26,12 @@\n   return (\n     <div className=\"home\">\n       {/* blos={blogs} is a prop */}\n       <BlogList blogs={blogs} title=\"All Blogs!\" />\n+      <BlogList\n+        blogs={blogs.filter((blogs) => blogs.author === \"Darth Vader\")}\n+        title=\"Darth Vader's Blogs\"\n+      />\n     </div>\n   );\n };\n \n"
+                },
+                {
+                    "date": 1724968530574,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,9 +27,9 @@\n     <div className=\"home\">\n       {/* blos={blogs} is a prop */}\n       <BlogList blogs={blogs} title=\"All Blogs!\" />\n       <BlogList\n-        blogs={blogs.filter((blogs) => blogs.author === \"Darth Vader\")}\n+        blogs={blogs.filter((blog) => blogs.author === \"Darth Vader\")}\n         title=\"Darth Vader's Blogs\"\n       />\n     </div>\n   );\n"
+                },
+                {
+                    "date": 1724968539291,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,9 +27,9 @@\n     <div className=\"home\">\n       {/* blos={blogs} is a prop */}\n       <BlogList blogs={blogs} title=\"All Blogs!\" />\n       <BlogList\n-        blogs={blogs.filter((blog) => blogs.author === \"Darth Vader\")}\n+        blogs={blogs.filter((blog) => blog.author === \"Darth Vader\")}\n         title=\"Darth Vader's Blogs\"\n       />\n     </div>\n   );\n"
+                },
+                {
+                    "date": 1724968817765,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,12 +22,17 @@\n       id: 3,\n     },\n   ]);\n \n+  const handleDelete = (id) => {\n+    const newBlogs = blogs.filter((blog) => blog.id != id);\n+    setBlogs(newBlogs);\n+  };\n+\n   return (\n     <div className=\"home\">\n       {/* blos={blogs} is a prop */}\n-      <BlogList blogs={blogs} title=\"All Blogs!\" />\n+      <BlogList blogs={blogs} title=\"All Blogs!\" handleDelete={handleDelete} />\n       <BlogList\n         blogs={blogs.filter((blog) => blog.author === \"Darth Vader\")}\n         title=\"Darth Vader's Blogs\"\n       />\n"
+                },
+                {
+                    "date": 1724968910634,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,9 @@\n     },\n   ]);\n \n   const handleDelete = (id) => {\n-    const newBlogs = blogs.filter((blog) => blog.id != id);\n+    const newBlogs = blogs.filter((blog) => blog.id !== id);\n     setBlogs(newBlogs);\n   };\n \n   return (\n"
+                },
+                {
+                    "date": 1724968918622,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,9 @@\n     },\n   ]);\n \n   const handleDelete = (id) => {\n-    const newBlogs = blogs.filter((blog) => blog.id !== id);\n+    const newBlogs = blogs.filter((blog) => blog.id === id);\n     setBlogs(newBlogs);\n   };\n \n   return (\n"
+                },
+                {
+                    "date": 1724968928394,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,9 @@\n     },\n   ]);\n \n   const handleDelete = (id) => {\n-    const newBlogs = blogs.filter((blog) => blog.id === id);\n+    const newBlogs = blogs.filter((blog) => blog.id !== id);\n     setBlogs(newBlogs);\n   };\n \n   return (\n"
+                },
+                {
+                    "date": 1724969046707,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-import { useState } from \"react\";\n+import { useState, useEffect } from \"react\";\n import BlogList from \"./BlogList\";\n \n const Home = () => {\n   const [blogs, setBlogs] = useState([\n@@ -27,8 +27,12 @@\n     const newBlogs = blogs.filter((blog) => blog.id !== id);\n     setBlogs(newBlogs);\n   };\n \n+  useEffect(() => {\n+    console.log(\"use effect ran\");\n+  });\n+\n   return (\n     <div className=\"home\">\n       {/* blos={blogs} is a prop */}\n       <BlogList blogs={blogs} title=\"All Blogs!\" handleDelete={handleDelete} />\n"
+                },
+                {
+                    "date": 1724969273497,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,8 +27,9 @@\n     const newBlogs = blogs.filter((blog) => blog.id !== id);\n     setBlogs(newBlogs);\n   };\n \n+  /* fires on every render, so any change of code */\n   useEffect(() => {\n     console.log(\"use effect ran\");\n   });\n \n"
                 }
             ],
             "date": 1724220498243,

@@ -1,0 +1,66 @@
+{
+    "sourceFile": "src/BlogList.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 12,
+            "patches": [
+                {
+                    "date": 1724967463800,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1724967516632,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,4 +1,6 @@\n+import Home from \"./Home\";\n+\n const BlogList = () => {\n   return (\n     <div className=\"blog-list\">\n       {blogs.map((blog) => (\n"
+                },
+                {
+                    "date": 1724967546870,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,4 @@\n-import Home from \"./Home\";\n-\n const BlogList = () => {\n   return (\n     <div className=\"blog-list\">\n       {blogs.map((blog) => (\n"
+                },
+                {
+                    "date": 1724967621094,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-const BlogList = () => {\n+const BlogList = (props) => {\n   return (\n     <div className=\"blog-list\">\n       {blogs.map((blog) => (\n         <div className=\"blog-preview\" key={blog.id}>\n"
+                },
+                {
+                    "date": 1724967640259,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,6 @@\n const BlogList = (props) => {\n+  const blogs = props.blogs;\n   return (\n     <div className=\"blog-list\">\n       {blogs.map((blog) => (\n         <div className=\"blog-preview\" key={blog.id}>\n"
+                },
+                {
+                    "date": 1724967688197,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,7 @@\n const BlogList = (props) => {\n   const blogs = props.blogs;\n+  console.log(props.blogs);\n   return (\n     <div className=\"blog-list\">\n       {blogs.map((blog) => (\n         <div className=\"blog-preview\" key={blog.id}>\n"
+                },
+                {
+                    "date": 1724967695083,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n const BlogList = (props) => {\n   const blogs = props.blogs;\n-  console.log(props.blogs);\n+  console.log(props, blogs);\n   return (\n     <div className=\"blog-list\">\n       {blogs.map((blog) => (\n         <div className=\"blog-preview\" key={blog.id}>\n"
+                },
+                {
+                    "date": 1724967790506,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,11 @@\n const BlogList = (props) => {\n   const blogs = props.blogs;\n-  console.log(props, blogs);\n+  const title = props.title;\n+\n   return (\n     <div className=\"blog-list\">\n+      <h2>{title}</h2>\n       {blogs.map((blog) => (\n         <div className=\"blog-preview\" key={blog.id}>\n           <h2>{blog.title}</h2>\n           <p>Written by {blog.author}</p>\n"
+                },
+                {
+                    "date": 1724968128494,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,5 @@\n-const BlogList = (props) => {\n-  const blogs = props.blogs;\n-  const title = props.title;\n-\n+const BlogList = (blogs, title) => {\n   return (\n     <div className=\"blog-list\">\n       <h2>{title}</h2>\n       {blogs.map((blog) => (\n"
+                },
+                {
+                    "date": 1724968441272,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,8 @@\n-const BlogList = (blogs, title) => {\n+const BlogList = (props) => {\n+  const blogs = props.blogs;\n+  const title = props.title;\n+\n   return (\n     <div className=\"blog-list\">\n       <h2>{title}</h2>\n       {blogs.map((blog) => (\n"
+                },
+                {
+                    "date": 1724968737898,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,15 +1,17 @@\n const BlogList = (props) => {\n   const blogs = props.blogs;\n   const title = props.title;\n+  const handleDelete = props.handleDelete;\n \n   return (\n     <div className=\"blog-list\">\n       <h2>{title}</h2>\n       {blogs.map((blog) => (\n         <div className=\"blog-preview\" key={blog.id}>\n           <h2>{blog.title}</h2>\n           <p>Written by {blog.author}</p>\n+          <button onClick={() => handleDelete(blog.id)}>Delete Blog</button>\n         </div>\n       ))}\n     </div>\n   );\n"
+                },
+                {
+                    "date": 1724968842567,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n-const BlogList = (props) => {\n-  const blogs = props.blogs;\n-  const title = props.title;\n-  const handleDelete = props.handleDelete;\n+const BlogList = (blogs, title, handleDelete) => {\n+  //   const blogs = props.blogs;\n+  //   const title = props.title;\n+  //   const handleDelete = props.handleDelete;\n \n   return (\n     <div className=\"blog-list\">\n       <h2>{title}</h2>\n"
+                },
+                {
+                    "date": 1724968869271,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-const BlogList = (blogs, title, handleDelete) => {\n+const BlogList = ({ blogs, title, handleDelete }) => {\n   //   const blogs = props.blogs;\n   //   const title = props.title;\n   //   const handleDelete = props.handleDelete;\n \n"
+                }
+            ],
+            "date": 1724967463800,
+            "name": "Commit-0",
+            "content": "const BlogList = () => {\n  return (\n    <div className=\"blog-list\">\n      {blogs.map((blog) => (\n        <div className=\"blog-preview\" key={blog.id}>\n          <h2>{blog.title}</h2>\n          <p>Written by {blog.author}</p>\n        </div>\n      ))}\n    </div>\n  );\n};\n\nexport default BlogList;\n"
+        }
+    ]
+}

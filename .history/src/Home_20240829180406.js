@@ -28,7 +28,6 @@ const Home = () => {
     setBlogs(newBlogs);
   };
 
-  /* fires on every render, so any change of code */
   useEffect(() => {
     console.log("use effect ran");
   });
