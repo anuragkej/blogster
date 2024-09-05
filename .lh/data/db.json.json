@@ -1,0 +1,18 @@
+{
+    "sourceFile": "data/db.json",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1725560470253,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1725560470253,
+            "name": "Commit-0",
+            "content": "{\n  \"blogs\": [\n    {\n      \"title\": \"My First Blog\",\n      \"body\": \"Sample Body\",\n      \"author\": \"Me\",\n      \"id\": 1\n    },\n    {\n      \"title\": \"My second blog\",\n      \"body\": \"Another sample\",\n      \"author\": \"You\",\n      \"id\": 2\n    }\n  ]\n}\n"
+        }
+    ]
+}

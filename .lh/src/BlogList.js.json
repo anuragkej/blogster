@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 12,
+            "activePatchIndex": 13,
             "patches": [
                 {
                     "date": 1724967463800,
@@ -56,6 +56,10 @@
                 {
                     "date": 1724968869271,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-const BlogList = (blogs, title, handleDelete) => {\n+const BlogList = ({ blogs, title, handleDelete }) => {\n   //   const blogs = props.blogs;\n   //   const title = props.title;\n   //   const handleDelete = props.handleDelete;\n \n"
+                },
+                {
+                    "date": 1725561157741,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,19 @@\n+const BlogList = ({ blogs, title }) => {\n+  //   const blogs = props.blogs;\n+  //   const title = props.title;\n+  //   const handleDelete = props.handleDelete;\n+\n+  return (\n+    <div className=\"blog-list\">\n+      <h2>{title}</h2>\n+      {blogs.map((blog) => (\n+        <div className=\"blog-preview\" key={blog.id}>\n+          <h2>{blog.title}</h2>\n+          <p>Written by {blog.author}</p>\n+        </div>\n+      ))}\n+    </div>\n+  );\n+};\n+\n+export default BlogList;\n"
                 }
             ],
             "date": 1724967463800,

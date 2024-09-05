@@ -3,29 +3,29 @@ import BlogList from "./BlogList";
 
 const Home = () => {
   const [blogs, setBlogs] = useState(null);
-  const [isPending, setIsPending] = useState(true);
 
   const [name, setName] = useState("mario");
 
+  const handleDelete = (id) => {
+    const newBlogs = blogs.filter((blog) => blog.id !== id);
+    setBlogs(newBlogs);
+  };
+
   /* fires on initial render, so doesn't matter if code changes */
   useEffect(() => {
-    setTimeout(() => {
-      fetch("http://localhost:8000/blogs")
-        .then((res) => {
-          return res.json();
-        })
-        .then((data) => {
-          setBlogs(data);
-          setIsPending(false);
-        });
-    }, 1000);
+    fetch("http://localhost:8000/blogs")
+      .then((res) => {
+        return res.json();
+      })
+      .then((data) => {
+        setBlogs(data);
+      });
   }, []);
 
   return (
     <div className="home">
       {/* blos={blogs} is a prop */}
-      {isPending && <div>Loading...</div>}
-      {blogs && <BlogList blogs={blogs} title="All Blogs!" />}
+      <BlogList blogs={blogs} title="All Blogs!" handleDelete={handleDelete} />
       {/* <button onClick={() => setName("luigi")}>change name</button>
       <p>{name}</p> */}
     </div>

@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 49,
+            "activePatchIndex": 59,
             "patches": [
                 {
                     "date": 1724220498243,
@@ -204,6 +204,46 @@
                 {
                     "date": 1724969273497,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,8 +27,9 @@\n     const newBlogs = blogs.filter((blog) => blog.id !== id);\n     setBlogs(newBlogs);\n   };\n \n+  /* fires on every render, so any change of code */\n   useEffect(() => {\n     console.log(\"use effect ran\");\n   });\n \n"
+                },
+                {
+                    "date": 1725559757164,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,8 +22,10 @@\n       id: 3,\n     },\n   ]);\n \n+  const [name, setName] = useState(\"mario\");\n+\n   const handleDelete = (id) => {\n     const newBlogs = blogs.filter((blog) => blog.id !== id);\n     setBlogs(newBlogs);\n   };\n@@ -36,12 +38,10 @@\n   return (\n     <div className=\"home\">\n       {/* blos={blogs} is a prop */}\n       <BlogList blogs={blogs} title=\"All Blogs!\" handleDelete={handleDelete} />\n-      <BlogList\n-        blogs={blogs.filter((blog) => blog.author === \"Darth Vader\")}\n-        title=\"Darth Vader's Blogs\"\n-      />\n+      <button onClick={() => setName(\"luigi\")}>change name</button>\n+      <p>{name}</p>\n     </div>\n   );\n };\n \n"
+                },
+                {
+                    "date": 1725560061752,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -32,9 +32,9 @@\n \n   /* fires on every render, so any change of code */\n   useEffect(() => {\n     console.log(\"use effect ran\");\n-  });\n+  }, [name]);\n \n   return (\n     <div className=\"home\">\n       {/* blos={blogs} is a prop */}\n"
+                },
+                {
+                    "date": 1725560075066,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -32,8 +32,9 @@\n \n   /* fires on every render, so any change of code */\n   useEffect(() => {\n     console.log(\"use effect ran\");\n+    console.log(name);\n   }, [name]);\n \n   return (\n     <div className=\"home\">\n"
+                },
+                {
+                    "date": 1725560939150,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,28 +1,9 @@\n import { useState, useEffect } from \"react\";\n import BlogList from \"./BlogList\";\n \n const Home = () => {\n-  const [blogs, setBlogs] = useState([\n-    {\n-      title: \"My First Website\",\n-      body: \"Developing website with react.\",\n-      author: \"Darth Vader\",\n-      id: 1,\n-    },\n-    {\n-      title: \"Experimenting with web hooks\",\n-      body: \"sample text\",\n-      author: \"mario\",\n-      id: 2,\n-    },\n-    {\n-      title: \"Web development tips\",\n-      body: \"Porsche 911 v. Lamborghini Huracan\",\n-      author: \"Ford\",\n-      id: 3,\n-    },\n-  ]);\n+  const [blogs, setBlogs] = useState(null);\n \n   const [name, setName] = useState(\"mario\");\n \n   const handleDelete = (id) => {\n@@ -31,18 +12,23 @@\n   };\n \n   /* fires on every render, so any change of code */\n   useEffect(() => {\n-    console.log(\"use effect ran\");\n-    console.log(name);\n-  }, [name]);\n+    fetch(\"http://localhost:8000/blogs\")\n+      .then((res) => {\n+        return res.json();\n+      })\n+      .then((data) => {\n+        console.log(data);\n+      });\n+  }, []);\n \n   return (\n     <div className=\"home\">\n       {/* blos={blogs} is a prop */}\n-      <BlogList blogs={blogs} title=\"All Blogs!\" handleDelete={handleDelete} />\n+      {/* <BlogList blogs={blogs} title=\"All Blogs!\" handleDelete={handleDelete} />\n       <button onClick={() => setName(\"luigi\")}>change name</button>\n-      <p>{name}</p>\n+      <p>{name}</p> */}\n     </div>\n   );\n };\n \n"
+                },
+                {
+                    "date": 1725561001442,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,24 +10,24 @@\n     const newBlogs = blogs.filter((blog) => blog.id !== id);\n     setBlogs(newBlogs);\n   };\n \n-  /* fires on every render, so any change of code */\n+  /* fires on initial render, so doesn't matter if code changes */\n   useEffect(() => {\n     fetch(\"http://localhost:8000/blogs\")\n       .then((res) => {\n         return res.json();\n       })\n       .then((data) => {\n-        console.log(data);\n+        setBlogs(data);\n       });\n   }, []);\n \n   return (\n     <div className=\"home\">\n       {/* blos={blogs} is a prop */}\n-      {/* <BlogList blogs={blogs} title=\"All Blogs!\" handleDelete={handleDelete} />\n-      <button onClick={() => setName(\"luigi\")}>change name</button>\n+      <BlogList blogs={blogs} title=\"All Blogs!\" handleDelete={handleDelete} />\n+      {/* <button onClick={() => setName(\"luigi\")}>change name</button>\n       <p>{name}</p> */}\n     </div>\n   );\n };\n"
+                },
+                {
+                    "date": 1725561049019,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,9 +24,15 @@\n \n   return (\n     <div className=\"home\">\n       {/* blos={blogs} is a prop */}\n-      <BlogList blogs={blogs} title=\"All Blogs!\" handleDelete={handleDelete} />\n+      {blogs && (\n+        <BlogList\n+          blogs={blogs}\n+          title=\"All Blogs!\"\n+          handleDelete={handleDelete}\n+        />\n+      )}\n       {/* <button onClick={() => setName(\"luigi\")}>change name</button>\n       <p>{name}</p> */}\n     </div>\n   );\n"
+                },
+                {
+                    "date": 1725561230588,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,16 +2,12 @@\n import BlogList from \"./BlogList\";\n \n const Home = () => {\n   const [blogs, setBlogs] = useState(null);\n+  const [isPending, setIsPending] = useState(true);\n \n   const [name, setName] = useState(\"mario\");\n \n-  const handleDelete = (id) => {\n-    const newBlogs = blogs.filter((blog) => blog.id !== id);\n-    setBlogs(newBlogs);\n-  };\n-\n   /* fires on initial render, so doesn't matter if code changes */\n   useEffect(() => {\n     fetch(\"http://localhost:8000/blogs\")\n       .then((res) => {\n@@ -24,15 +20,10 @@\n \n   return (\n     <div className=\"home\">\n       {/* blos={blogs} is a prop */}\n-      {blogs && (\n-        <BlogList\n-          blogs={blogs}\n-          title=\"All Blogs!\"\n-          handleDelete={handleDelete}\n-        />\n-      )}\n+      {isPending && <div>Loading...</div>}\n+      {blogs && <BlogList blogs={blogs} title=\"All Blogs!\" />}\n       {/* <button onClick={() => setName(\"luigi\")}>change name</button>\n       <p>{name}</p> */}\n     </div>\n   );\n"
+                },
+                {
+                    "date": 1725561244369,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,8 +14,9 @@\n         return res.json();\n       })\n       .then((data) => {\n         setBlogs(data);\n+        setIsPending(false);\n       });\n   }, []);\n \n   return (\n"
+                },
+                {
+                    "date": 1725561295183,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,16 +8,18 @@\n   const [name, setName] = useState(\"mario\");\n \n   /* fires on initial render, so doesn't matter if code changes */\n   useEffect(() => {\n-    fetch(\"http://localhost:8000/blogs\")\n+    setTimeout(() => ){\n+      fetch(\"http://localhost:8000/blogs\")\n       .then((res) => {\n         return res.json();\n       })\n       .then((data) => {\n         setBlogs(data);\n         setIsPending(false);\n       });\n+    }\n   }, []);\n \n   return (\n     <div className=\"home\">\n"
+                },
+                {
+                    "date": 1725561311172,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,18 +8,18 @@\n   const [name, setName] = useState(\"mario\");\n \n   /* fires on initial render, so doesn't matter if code changes */\n   useEffect(() => {\n-    setTimeout(() => ){\n+    setTimeout(() => {\n       fetch(\"http://localhost:8000/blogs\")\n-      .then((res) => {\n-        return res.json();\n-      })\n-      .then((data) => {\n-        setBlogs(data);\n-        setIsPending(false);\n-      });\n-    }\n+        .then((res) => {\n+          return res.json();\n+        })\n+        .then((data) => {\n+          setBlogs(data);\n+          setIsPending(false);\n+        });\n+    }, 1000);\n   }, []);\n \n   return (\n     <div className=\"home\">\n"
                 }
             ],
             "date": 1724220498243,
