@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 20,
+            "activePatchIndex": 24,
             "patches": [
                 {
                     "date": 1724129241870,
@@ -88,6 +88,22 @@
                 {
                     "date": 1724220737863,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,4 @@\n-import \"./App.css\";\n import Navbar from \"./Navbar\";\n import Home from \"./Home\";\n \n function App() {\n@@ -21,32 +20,4 @@\n   );\n }\n \n export default App;\n-import \"./App.css\";\n-import Navbar from \"./Navbar\";\n-import Home from \"./Home\";\n-\n-function App() {\n-  const title = \"Welcome to Blogster\";\n-  const likes = 50;\n-  const link = \"http://www.google.com\";\n-\n-  // react converts everything to string before outputting to browser, so don't need to worry about typecasting\n-\n-  return (\n-    <div className=\"App\">\n-      <Navbar></Navbar>\n-      <div className=\"content\">\n-        <h1>{title}</h1>\n-        <p>Liked {likes} times</p>\n-        <p>{10}</p>\n-        <p>{\"hello everyone!\"}</p>\n-        <p>{Math.random() * 100}</p>\n-\n-        <a href={link}>Open Google Site</a>\n-      </div>\n-    </div>\n-  );\n-}\n-\n-export default App;\n"
+                },
+                {
+                    "date": 1727317208938,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,11 @@\n import Navbar from \"./Navbar\";\n import Home from \"./Home\";\n+import {\n+  BrowserRouter as Router,\n+  Route,\n+  Switch,\n+} from \"react-router-dom/cjs/react-router-dom.min\";\n \n function App() {\n   const title = \"Welcome to Blogster\";\n   const likes = 50;\n"
+                },
+                {
+                    "date": 1727317275343,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,23 +6,24 @@\n   Switch,\n } from \"react-router-dom/cjs/react-router-dom.min\";\n \n function App() {\n-  const title = \"Welcome to Blogster\";\n-  const likes = 50;\n-  const link = \"http://www.google.com\";\n-\n-  // react converts everything to string before outputting to browser, so don't need to worry about typecasting\n-\n   return (\n-    <div className=\"App\">\n-      <Navbar></Navbar>\n-      <div className=\"content\">\n-        <Home />\n-\n-        <a href={link}>Open Google Site</a>\n+    <Router>\n+      <div className=\"App\">\n+        <Navbar></Navbar>\n+        <div className=\"content\">\n+         switch (key) {\n+          case value:\n+            \n+            break;\n+         \n+          default:\n+            break;\n+         }\n+        </div>\n       </div>\n-    </div>\n+    </Router>\n   );\n }\n \n export default App;\n"
+                },
+                {
+                    "date": 1727317343477,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,16 +11,13 @@\n     <Router>\n       <div className=\"App\">\n         <Navbar></Navbar>\n         <div className=\"content\">\n-         switch (key) {\n-          case value:\n-            \n-            break;\n-         \n-          default:\n-            break;\n-         }\n+          <Switch>\n+            <Route path=\"/\">\n+              <Home></Home>\n+            </Route>\n+          </Switch>\n         </div>\n       </div>\n     </Router>\n   );\n"
+                },
+                {
+                    "date": 1727317349164,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n         <Navbar></Navbar>\n         <div className=\"content\">\n           <Switch>\n             <Route path=\"/\">\n-              <Home></Home>\n+              <Home />\n             </Route>\n           </Switch>\n         </div>\n       </div>\n"
                 }
             ],
             "date": 1724129241870,

@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 59,
+            "activePatchIndex": 70,
             "patches": [
                 {
                     "date": 1724220498243,
@@ -244,6 +244,50 @@
                 {
                     "date": 1725561311172,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,18 +8,18 @@\n   const [name, setName] = useState(\"mario\");\n \n   /* fires on initial render, so doesn't matter if code changes */\n   useEffect(() => {\n-    setTimeout(() => ){\n+    setTimeout(() => {\n       fetch(\"http://localhost:8000/blogs\")\n-      .then((res) => {\n-        return res.json();\n-      })\n-      .then((data) => {\n-        setBlogs(data);\n-        setIsPending(false);\n-      });\n-    }\n+        .then((res) => {\n+          return res.json();\n+        })\n+        .then((data) => {\n+          setBlogs(data);\n+          setIsPending(false);\n+        });\n+    }, 1000);\n   }, []);\n \n   return (\n     <div className=\"home\">\n"
+                },
+                {
+                    "date": 1726234271369,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,10 +25,8 @@\n     <div className=\"home\">\n       {/* blos={blogs} is a prop */}\n       {isPending && <div>Loading...</div>}\n       {blogs && <BlogList blogs={blogs} title=\"All Blogs!\" />}\n-      {/* <button onClick={() => setName(\"luigi\")}>change name</button>\n-      <p>{name}</p> */}\n     </div>\n   );\n };\n \n"
+                },
+                {
+                    "date": 1726234278272,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,10 +4,8 @@\n const Home = () => {\n   const [blogs, setBlogs] = useState(null);\n   const [isPending, setIsPending] = useState(true);\n \n-  const [name, setName] = useState(\"mario\");\n-\n   /* fires on initial render, so doesn't matter if code changes */\n   useEffect(() => {\n     setTimeout(() => {\n       fetch(\"http://localhost:8000/blogs\")\n"
+                },
+                {
+                    "date": 1727315282763,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,12 @@\n         })\n         .then((data) => {\n           setBlogs(data);\n           setIsPending(false);\n-        });\n+        })\n+        .catch((err) => {\n+          console.log(err.message);\n+        }); // catches network error\n     }, 1000);\n   }, []);\n \n   return (\n"
+                },
+                {
+                    "date": 1727315500376,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,8 +9,12 @@\n   useEffect(() => {\n     setTimeout(() => {\n       fetch(\"http://localhost:8000/blogs\")\n         .then((res) => {\n+          console.log(res);\n+          // if (res.ok){\n+\n+          // }\n           return res.json();\n         })\n         .then((data) => {\n           setBlogs(data);\n"
+                },
+                {
+                    "date": 1727315610804,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,12 +9,11 @@\n   useEffect(() => {\n     setTimeout(() => {\n       fetch(\"http://localhost:8000/blogs\")\n         .then((res) => {\n-          console.log(res);\n-          // if (res.ok){\n-\n-          // }\n+          if (!res.ok) {\n+            throw Error(\"Could not fetch the data for that resource\");\n+          }\n           return res.json();\n         })\n         .then((data) => {\n           setBlogs(data);\n"
+                },
+                {
+                    "date": 1727315693472,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,8 +3,9 @@\n \n const Home = () => {\n   const [blogs, setBlogs] = useState(null);\n   const [isPending, setIsPending] = useState(true);\n+  const [error, setError] = useState(null);\n \n   /* fires on initial render, so doesn't matter if code changes */\n   useEffect(() => {\n     setTimeout(() => {\n@@ -19,16 +20,17 @@\n           setBlogs(data);\n           setIsPending(false);\n         })\n         .catch((err) => {\n-          console.log(err.message);\n+          setError(err.message);\n         }); // catches network error\n     }, 1000);\n   }, []);\n \n   return (\n     <div className=\"home\">\n       {/* blos={blogs} is a prop */}\n+      {error && <div> {error} </div>}\n       {isPending && <div>Loading...</div>}\n       {blogs && <BlogList blogs={blogs} title=\"All Blogs!\" />}\n     </div>\n   );\n"
+                },
+                {
+                    "date": 1727315729714,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,10 +18,12 @@\n         })\n         .then((data) => {\n           setBlogs(data);\n           setIsPending(false);\n+          setError(null);\n         })\n         .catch((err) => {\n+          setIsPending(false);\n           setError(err.message);\n         }); // catches network error\n     }, 1000);\n   }, []);\n"
+                },
+                {
+                    "date": 1727315738913,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n \n   /* fires on initial render, so doesn't matter if code changes */\n   useEffect(() => {\n     setTimeout(() => {\n-      fetch(\"http://localhost:8000/blogs\")\n+      fetch(\"http://localhost:8000/blogss\")\n         .then((res) => {\n           if (!res.ok) {\n             throw Error(\"Could not fetch the data for that resource\");\n           }\n"
+                },
+                {
+                    "date": 1727315748091,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n \n   /* fires on initial render, so doesn't matter if code changes */\n   useEffect(() => {\n     setTimeout(() => {\n-      fetch(\"http://localhost:8000/blogss\")\n+      fetch(\"http://localhost:8000/blogs\")\n         .then((res) => {\n           if (!res.ok) {\n             throw Error(\"Could not fetch the data for that resource\");\n           }\n"
+                },
+                {
+                    "date": 1727316652244,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,33 +1,12 @@\n import { useState, useEffect } from \"react\";\n import BlogList from \"./BlogList\";\n+import useFetch from \"./useFetch\";\n \n const Home = () => {\n-  const [blogs, setBlogs] = useState(null);\n-  const [isPending, setIsPending] = useState(true);\n-  const [error, setError] = useState(null);\n+  const { data, isPending, error } = useFetch(\"http://localhost:8000/blogs\");\n \n   /* fires on initial render, so doesn't matter if code changes */\n-  useEffect(() => {\n-    setTimeout(() => {\n-      fetch(\"http://localhost:8000/blogs\")\n-        .then((res) => {\n-          if (!res.ok) {\n-            throw Error(\"Could not fetch the data for that resource\");\n-          }\n-          return res.json();\n-        })\n-        .then((data) => {\n-          setBlogs(data);\n-          setIsPending(false);\n-          setError(null);\n-        })\n-        .catch((err) => {\n-          setIsPending(false);\n-          setError(err.message);\n-        }); // catches network error\n-    }, 1000);\n-  }, []);\n \n   return (\n     <div className=\"home\">\n       {/* blos={blogs} is a prop */}\n"
+                },
+                {
+                    "date": 1727316686073,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,13 @@\n import BlogList from \"./BlogList\";\n import useFetch from \"./useFetch\";\n \n const Home = () => {\n-  const { data, isPending, error } = useFetch(\"http://localhost:8000/blogs\");\n+  const {\n+    data: blogs,\n+    isPending,\n+    error,\n+  } = useFetch(\"http://localhost:8000/blogs\");\n \n   /* fires on initial render, so doesn't matter if code changes */\n \n   return (\n"
                 }
             ],
             "date": 1724220498243,

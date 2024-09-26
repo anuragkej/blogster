@@ -12,11 +12,14 @@ function App() {
       <div className="App">
         <Navbar></Navbar>
         <div className="content">
-          <Switch>
-            <Route path="/">
-              <Home />
-            </Route>
-          </Switch>
+         switch (key) {
+          case value:
+            
+            break;
+         
+          default:
+            break;
+         }
         </div>
       </div>
     </Router>
