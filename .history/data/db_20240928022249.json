@@ -1,0 +1,16 @@
+{
+  "blogs": [
+    {
+      "title": "Coding and its possibilities",
+      "body": "The Power of Coding: Unlocking Creativity and Innovation. Coding has become one of the most essential skills in today's digital age. It’s not just about building websites or apps; coding is a tool that empowers creativity, problem-solving, and innovation. From automating repetitive tasks to developing groundbreaking technologies, coding opens endless possibilities. Whether you're a beginner learning basic HTML or an expert mastering machine learning algorithms, the ability to write code lets you bring ideas to life. In a world driven by technology, coding is the language of the future—one line at a time.",
+      "author": "Me",
+      "id": 1
+    },
+    {
+      "title": "Cars",
+      "body": "The Future of Cars: Electric, Autonomous, and Connected. The automotive industry is shifting rapidly, with three major trends defining its future: electric vehicles, autonomous driving, and connected technology. Electric cars, led by brands like Tesla and Ford, are moving towards a zero-emissions future, offering performance that rivals or even surpasses gas-powered vehicles. Autonomous driving is also progressing, with tech like adaptive cruise control and self-parking giving us a glimpse of fully driverless cars. Finally, connected cars are turning vehicles into digital hubs, linking them to the broader tech ecosystem for smarter, safer driving experiences.The future is here, and it’s electrifying!",
+      "author": "You",
+      "id": 2
+    }
+  ]
+}

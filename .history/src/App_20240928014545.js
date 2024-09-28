@@ -6,7 +6,6 @@ import {
   Switch,
 } from "react-router-dom/cjs/react-router-dom.min";
 import Create from "./Create";
-import BlogDetails from "./BlogDetails";
 //The router tries to match top down, so as soon as it sees a slash since it matches, itll route to that path
 function App() {
   return (
@@ -20,9 +19,6 @@ function App() {
             </Route>
             <Route path="/create">
               <Create />
-            </Route>
-            <Route path="/blogs/:id">
-              <BlogDetails />
             </Route>
           </Switch>
         </div>

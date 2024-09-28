@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 24,
+            "activePatchIndex": 28,
             "patches": [
                 {
                     "date": 1724129241870,
@@ -104,6 +104,22 @@
                 {
                     "date": 1727317349164,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n         <Navbar></Navbar>\n         <div className=\"content\">\n           <Switch>\n             <Route path=\"/\">\n-              <Home></Home>\n+              <Home />\n             </Route>\n           </Switch>\n         </div>\n       </div>\n"
+                },
+                {
+                    "date": 1727502219142,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,8 +4,9 @@\n   BrowserRouter as Router,\n   Route,\n   Switch,\n } from \"react-router-dom/cjs/react-router-dom.min\";\n+import Create from \"./Create\";\n \n function App() {\n   return (\n     <Router>\n@@ -15,8 +16,11 @@\n           <Switch>\n             <Route path=\"/\">\n               <Home />\n             </Route>\n+            <Route path=\"/create\">\n+              <Create />\n+            </Route>\n           </Switch>\n         </div>\n       </div>\n     </Router>\n"
+                },
+                {
+                    "date": 1727502325755,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n   Route,\n   Switch,\n } from \"react-router-dom/cjs/react-router-dom.min\";\n import Create from \"./Create\";\n-\n+//The router tries to match top down, so as soon as it sees a slash since it matches, itll route to that path\n function App() {\n   return (\n     <Router>\n       <div className=\"App\">\n"
+                },
+                {
+                    "date": 1727502345382,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n       <div className=\"App\">\n         <Navbar></Navbar>\n         <div className=\"content\">\n           <Switch>\n-            <Route path=\"/\">\n+            <Route exact path=\"/\">\n               <Home />\n             </Route>\n             <Route path=\"/create\">\n               <Create />\n"
+                },
+                {
+                    "date": 1727503266482,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,8 +5,9 @@\n   Route,\n   Switch,\n } from \"react-router-dom/cjs/react-router-dom.min\";\n import Create from \"./Create\";\n+import BlogDetails from \"./BlogDetails\";\n //The router tries to match top down, so as soon as it sees a slash since it matches, itll route to that path\n function App() {\n   return (\n     <Router>\n@@ -19,8 +20,11 @@\n             </Route>\n             <Route path=\"/create\">\n               <Create />\n             </Route>\n+            <Route path=\"/blogs/:id\">\n+              <BlogDetails />\n+            </Route>\n           </Switch>\n         </div>\n       </div>\n     </Router>\n"
                 }
             ],
             "date": 1724129241870,

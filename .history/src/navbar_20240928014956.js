@@ -1,4 +1,6 @@
-import { Link } from "react-router-dom";
+import reactRouterDom from "react-router-dom";
+import {Link} from reactRouterDom
+
 
 const Navbar = () => {
   return (
@@ -6,7 +8,8 @@ const Navbar = () => {
       <h1>Blogster</h1>
       <div className="links">
         <Link to="/">Home</Link>
-        <Link to="/create"> New Blog</Link>
+        <Link to="/create"> New Blog
+        </Link>
       </div>
     </nav>
   );

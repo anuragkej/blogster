@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 70,
+            "activePatchIndex": 72,
             "patches": [
                 {
                     "date": 1724220498243,
@@ -288,6 +288,14 @@
                 {
                     "date": 1727316686073,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,13 @@\n import BlogList from \"./BlogList\";\n import useFetch from \"./useFetch\";\n \n const Home = () => {\n-  const { data, isPending, error } = useFetch(\"http://localhost:8000/blogs\");\n+  const {\n+    data: blogs,\n+    isPending,\n+    error,\n+  } = useFetch(\"http://localhost:8000/blogs\");\n \n   /* fires on initial render, so doesn't matter if code changes */\n \n   return (\n"
+                },
+                {
+                    "date": 1727503020121,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,8 @@\n   /* fires on initial render, so doesn't matter if code changes */\n \n   return (\n     <div className=\"home\">\n-      {/* blos={blogs} is a prop */}\n       {error && <div> {error} </div>}\n       {isPending && <div>Loading...</div>}\n       {blogs && <BlogList blogs={blogs} title=\"All Blogs!\" />}\n     </div>\n"
+                },
+                {
+                    "date": 1727503103268,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,4 @@\n-import { useState, useEffect } from \"react\";\n import BlogList from \"./BlogList\";\n import useFetch from \"./useFetch\";\n \n const Home = () => {\n"
                 }
             ],
             "date": 1724220498243,

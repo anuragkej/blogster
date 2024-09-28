@@ -22,12 +22,8 @@ const useFetch = (url) => {
           setError(null);
         })
         .catch((err) => {
-          if (err.name === "AbortError") {
-            console.log("fetch aborted");
-          } else {
-            setIsPending(false);
-            setError(err.message);
-          }
+          setIsPending(false);
+          setError(err.message);
         }); // catches network error
     }, 1000);
 

@@ -6,10 +6,8 @@ const useFetch = (url) => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const abortCont = new AbortController();
-
     setTimeout(() => {
-      fetch(url, { signal: abortCont.signal })
+      fetch(url)
         .then((res) => {
           if (!res.ok) {
             throw Error("Could not fetch the data for that resource");
@@ -22,16 +20,12 @@ const useFetch = (url) => {
           setError(null);
         })
         .catch((err) => {
-          if (err.name === "AbortError") {
-            console.log("fetch aborted");
-          } else {
-            setIsPending(false);
-            setError(err.message);
-          }
+          setIsPending(false);
+          setError(err.message);
         }); // catches network error
     }, 1000);
 
-    return () => abortCont.abort();
+    return () => console.log("cleanup");
   }, [url]); // put url as a dependency so that whenevr url changes, it has to reload
 
   return { data, isPending, error };

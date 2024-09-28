@@ -1,0 +1,16 @@
+{
+  "blogs": [
+    {
+      "title": "My First Blog",
+      "body": "Sample Body",
+      "author": "Me",
+      "id": 1
+    },
+    {
+      "title": "Cars",
+      "body": "The Future of Cars: Electric, Autonomous, and Connected. The automotive industry is shifting rapidly, with three major trends defining its future: electric vehicles, autonomous driving, and connected technology. Electric cars, led by brands like Tesla and Ford, are moving towards a zero-emissions future, offering performance that rivals or even surpasses gas-powered vehicles. Autonomous driving is also progressing, with tech like adaptive cruise control and self-parking giving us a glimpse of fully driverless cars. Finally, connected cars are turning vehicles into digital hubs, linking them to the broader tech ecosystem for smarter, safer driving experiences.The future is here, and it’s electrifying!",
+      "author": "You",
+      "id": 2
+    }
+  ]
+}

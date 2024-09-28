@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 13,
+            "activePatchIndex": 16,
             "patches": [
                 {
                     "date": 1724967463800,
@@ -60,6 +60,18 @@
                 {
                     "date": 1725561157741,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,19 @@\n+const BlogList = ({ blogs, title }) => {\n+  //   const blogs = props.blogs;\n+  //   const title = props.title;\n+  //   const handleDelete = props.handleDelete;\n+\n+  return (\n+    <div className=\"blog-list\">\n+      <h2>{title}</h2>\n+      {blogs.map((blog) => (\n+        <div className=\"blog-preview\" key={blog.id}>\n+          <h2>{blog.title}</h2>\n+          <p>Written by {blog.author}</p>\n+        </div>\n+      ))}\n+    </div>\n+  );\n+};\n+\n+export default BlogList;\n"
+                },
+                {
+                    "date": 1727503820370,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,33 +7,15 @@\n     <div className=\"blog-list\">\n       <h2>{title}</h2>\n       {blogs.map((blog) => (\n         <div className=\"blog-preview\" key={blog.id}>\n-          <h2>{blog.title}</h2>\n-          <p>Written by {blog.author}</p>\n+          <Link>\n+            <h2>{blog.title}</h2>\n+            <p>Written by {blog.author}</p>\n+          </Link>\n         </div>\n       ))}\n     </div>\n   );\n };\n \n export default BlogList;\n-const BlogList = ({ blogs, title, handleDelete }) => {\n-  //   const blogs = props.blogs;\n-  //   const title = props.title;\n-  //   const handleDelete = props.handleDelete;\n-\n-  return (\n-    <div className=\"blog-list\">\n-      <h2>{title}</h2>\n-      {blogs.map((blog) => (\n-        <div className=\"blog-preview\" key={blog.id}>\n-          <h2>{blog.title}</h2>\n-          <p>Written by {blog.author}</p>\n-          <button onClick={() => handleDelete(blog.id)}>Delete Blog</button>\n-        </div>\n-      ))}\n-    </div>\n-  );\n-};\n-\n-export default BlogList;\n"
+                },
+                {
+                    "date": 1727503857659,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n     <div className=\"blog-list\">\n       <h2>{title}</h2>\n       {blogs.map((blog) => (\n         <div className=\"blog-preview\" key={blog.id}>\n-          <Link>\n+          <Link to={`/blogs/${blog.id}`}>\n             <h2>{blog.title}</h2>\n             <p>Written by {blog.author}</p>\n           </Link>\n         </div>\n"
+                },
+                {
+                    "date": 1727503900028,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,4 +1,6 @@\n+import { Link } from \"react-router-dom\";\n+\n const BlogList = ({ blogs, title }) => {\n   //   const blogs = props.blogs;\n   //   const title = props.title;\n   //   const handleDelete = props.handleDelete;\n"
                 }
             ],
             "date": 1724967463800,
