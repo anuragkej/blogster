@@ -3,7 +3,7 @@ import { useState } from "react";
 const Create = () => {
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
-  const [author, setAuthor] = useState("mario");
+  const [author, setAuthor] = useState("");
 
   return (
     <div className="create">
@@ -21,10 +21,10 @@ const Create = () => {
         <textarea
           required
           value={body}
-          onChange={(e) => setBody(e.target.value)}
+          onChange={(e) => setTitle(e.target.value)}
         ></textarea>
         <label>Blog author:</label>
-        <select value={author} onChange={(e) => setAuthor(e.target.value)}>
+        <select>
           <option value="mario">mario</option>
           <option value="yoshi">yoshi</option>
         </select>

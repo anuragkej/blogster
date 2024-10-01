@@ -29,6 +29,7 @@ const Create = () => {
           <option value="yoshi">yoshi</option>
         </select>
         <button>Add Blog</button>
+        <p>{author}</p>
       </form>
     </div>
   );
