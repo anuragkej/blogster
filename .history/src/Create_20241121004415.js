@@ -5,10 +5,15 @@ const Create = () => {
   const [body, setBody] = useState("");
   const [author, setAuthor] = useState("mario");
 
+  const handleSubmit = (e) => {
+    /*default action refreshes page */
+    e.preventDefault();
+  }
+
   return (
     <div className="create">
       <h2>Add a New Blog</h2>
-      <form>
+      <form onSubmit={}>
         <label>Blog title:</label>
         <input
           type="text"
@@ -29,7 +34,6 @@ const Create = () => {
           <option value="yoshi">yoshi</option>
         </select>
         <button>Add Blog</button>
-        <p>{author}</p>
       </form>
     </div>
   );
