@@ -1,12 +1,10 @@
 import { useState } from "react";
-import { useHistory } from "react-router-dom";
 
 const Create = () => {
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
   const [author, setAuthor] = useState("mario");
   const [isPending, setIsPending] = useState(false);
-  const history = useHistory();
 
   const handleSubmit = (e) => {
     /*default action refreshes page */
@@ -24,8 +22,6 @@ const Create = () => {
     }).then(() => {
       console.log("new blog added");
       setIsPending(false);
-      // history.go(-1); // positive integer is forward, negative is back
-      history.push("/"); // push to home page
     });
   };
   return (
@@ -51,8 +47,7 @@ const Create = () => {
           <option value="mario">mario</option>
           <option value="yoshi">yoshi</option>
         </select>
-        {!isPending && <button>Add Blog</button>}
-        {isPending && <button disabled>Adding Blog...</button>}
+        <button>Add Blog</button>
       </form>
     </div>
   );

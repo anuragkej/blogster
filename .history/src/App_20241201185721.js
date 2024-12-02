@@ -25,7 +25,7 @@ function App() {
             <Route path="/blogs/:id">
               <BlogDetails />
             </Route>
-            <Route path="*">
+            <Route>
               <NotFound />
             </Route>
           </Switch>

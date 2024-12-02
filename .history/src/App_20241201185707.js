@@ -7,7 +7,6 @@ import {
 } from "react-router-dom/cjs/react-router-dom.min";
 import Create from "./Create";
 import BlogDetails from "./BlogDetails";
-import NotFound from "./NotFound";
 //The router tries to match top down, so as soon as it sees a slash since it matches, itll route to that path
 function App() {
   return (
@@ -25,7 +24,7 @@ function App() {
             <Route path="/blogs/:id">
               <BlogDetails />
             </Route>
-            <Route path="*">
+            <Route>
               <NotFound />
             </Route>
           </Switch>

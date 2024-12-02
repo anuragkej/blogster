@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 5,
+            "activePatchIndex": 9,
             "patches": [
                 {
                     "date": 1727503283996,
@@ -28,6 +28,22 @@
                 {
                     "date": 1727504297593,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,8 +12,15 @@\n   return (\n     <div className=\"blog-details\">\n       {isPending && <div>Loading...</div>}\n       {error && <div>{error}</div>}\n+      {blog && (\n+        <article>\n+          <h2>{blog.title}</h2>\n+          <p>Written by {blog.author}</p>\n+          <div>{blog.body}</div>\n+        </article>\n+      )}\n     </div>\n   );\n };\n \n"
+                },
+                {
+                    "date": 1733097141332,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,8 +7,17 @@\n     data: blog,\n     error,\n     isPending,\n   } = useFetch(\"http://localhost:8000/blogs/\" + id);\n+  const history = useHistory();\n+  \n+  const handleClick = () => {\n+    fetch(\"http://localhost:8000/blogs/\" + blog.id, {\n+      method: \"DELETE\",\n+    }).then(() => {\n+      history.push(\"/\");\n+    });\n+  }\n \n   return (\n     <div className=\"blog-details\">\n       {isPending && <div>Loading...</div>}\n@@ -17,8 +26,9 @@\n         <article>\n           <h2>{blog.title}</h2>\n           <p>Written by {blog.author}</p>\n           <div>{blog.body}</div>\n+          <button onClick={}>delete</button>\n         </article>\n       )}\n     </div>\n   );\n"
+                },
+                {
+                    "date": 1733097148140,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,7 @@\n import { useParams } from \"react-router-dom/cjs/react-router-dom.min\";\n import useFetch from \"./useFetch\";\n+import { useHistory } from \"react-router-dom\";\n \n const BlogDetails = () => {\n   const { id } = useParams();\n   const {\n"
+                },
+                {
+                    "date": 1733097168632,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n     fetch(\"http://localhost:8000/blogs/\" + blog.id, {\n       method: \"DELETE\",\n     }).then(() => {\n       history.push(\"/\");\n-    });\n+    })\n   }\n \n   return (\n     <div className=\"blog-details\">\n"
+                },
+                {
+                    "date": 1733097182040,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,16 +9,16 @@\n     error,\n     isPending,\n   } = useFetch(\"http://localhost:8000/blogs/\" + id);\n   const history = useHistory();\n-  \n+\n   const handleClick = () => {\n     fetch(\"http://localhost:8000/blogs/\" + blog.id, {\n       method: \"DELETE\",\n     }).then(() => {\n       history.push(\"/\");\n-    })\n-  }\n+    });\n+  };\n \n   return (\n     <div className=\"blog-details\">\n       {isPending && <div>Loading...</div>}\n@@ -27,9 +27,9 @@\n         <article>\n           <h2>{blog.title}</h2>\n           <p>Written by {blog.author}</p>\n           <div>{blog.body}</div>\n-          <button onClick={}>delete</button>\n+          <button onClick={handleClick}>delete</button>\n         </article>\n       )}\n     </div>\n   );\n"
                 }
             ],
             "date": 1727503283996,

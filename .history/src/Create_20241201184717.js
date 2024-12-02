@@ -24,8 +24,7 @@ const Create = () => {
     }).then(() => {
       console.log("new blog added");
       setIsPending(false);
-      // history.go(-1); // positive integer is forward, negative is back
-      history.push("/"); // push to home page
+      history.go(-1);
     });
   };
   return (
